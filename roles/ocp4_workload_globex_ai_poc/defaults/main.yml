@@ -128,3 +128,28 @@ ocp4_workload_globex_ai_poc_openshift_gitops_resource_customizations: |
   #     return hs
 
 ocp4_workload_globex_ai_poc_openshift_gitops_ignore_differences: {}
+
+# ------------------------------------------------
+# AMQ Streams
+# ------------------------------------------------
+
+ocp4_workload_globex_ai_poc_openshift_ingress_secret_certs: ingress-certs-2025-07-30
+
+ocp4_workload_globex_ai_poc_amq_streams_application_namespace: openshift-gitops
+ocp4_workload_globex_ai_poc_amq_streams_application_name: amqstreams
+
+ocp4_workload_globex_ai_poc_amq_streams_namespace: kafka
+ocp4_workload_globex_ai_poc_amq_streams_gitops_repo: https://github.com/btison/globex-ai-poc-helm.git
+ocp4_workload_globex_ai_poc_amq_streams_gitops_repo_tag: main
+ocp4_workload_globex_ai_poc_amq_streams_gitops_repo_path: amq-streams
+
+ocp4_workload_globex_ai_poc_amq_streams_broker_enabled: true
+ocp4_workload_globex_ai_poc_amq_streams_broker_namespace: kafka
+ocp4_workload_globex_ai_poc_amq_streams_broker_name: kafka
+ocp4_workload_globex_ai_poc_amq_streams_security_protocol: SASL_SSL
+ocp4_workload_globex_ai_poc_amq_streams_sasl_mechanism: SCRAM-SHA-512
+ocp4_workload_globex_ai_poc_amq_streams_client_id: admin
+ocp4_workload_globex_ai_poc_amq_streams_client_secret: adminpassword
+
+ocp4_workload_globex_ai_poc_amq_streams_console_enabled: true
+ocp4_workload_globex_ai_poc_amq_streams_console_namespace: kafka
