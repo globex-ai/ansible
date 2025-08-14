@@ -1,0 +1,56 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ ocp4_workload_globex_ai_poc_globex_application_name }}
+  namespace: {{ ocp4_workload_globex_ai_poc_globex_application_namespace }}
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io/foreground
+spec:
+  destination:
+    name: ""
+    namespace: {{ ocp4_workload_globex_ai_poc_globex_namespace }}
+    server: 'https://kubernetes.default.svc'
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    retry:
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m0s
+      limit: 10
+    syncOptions:
+      - CreateNamespace=true
+      - RespectIgnoreDifferences=true
+  source:
+    repoURL: {{ ocp4_workload_globex_ai_poc_globex_gitops_repo }}
+    targetRevision: {{ ocp4_workload_globex_ai_poc_globex_gitops_repo_tag }}
+    path: {{ ocp4_workload_globex_ai_poc_globex_gitops_repo_path }}
+    helm:
+      valuesObject:
+        kafka:
+          name: &kafkaName {{ ocp4_workload_globex_ai_poc_globex_kafka_broker_name }}
+          namespace: &namespace {{ ocp4_workload_globex_ai_poc_globex_kafka_broker_namespace }}
+
+        kafka-cluster: &kafka
+          bootstrapServer: {{ ocp4_workload_globex_ai_poc_globex_kafka_broker_name }}-kafka-bootstrap.{{ ocp4_workload_globex_ai_poc_globex_kafka_broker_namespace }}.svc.cluster.local:9092
+          securityProtocol: {{ ocp4_workload_globex_ai_poc_globex_kafka_security_protocol }}
+          saslMechanism: {{ ocp4_workload_globex_ai_poc_globex_kafka_sasl_mechanism }}
+          clientId: {{ ocp4_workload_globex_ai_poc_globex_kafka_client_id }}
+          clientSecret: {{ ocp4_workload_globex_ai_poc_globex_kafka_client_secret }}
+
+        kafka-broker:
+          namespace: *namespace
+          nameOverride: *kafkaName
+
+        kafka-topics:
+          kafka:
+            namespace: *namespace
+            cluster: *kafkaName
+
+        globex-db:
+          pgsql:
+            adminPassword: adminpassword

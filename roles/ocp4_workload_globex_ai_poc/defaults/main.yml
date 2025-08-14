@@ -153,3 +153,23 @@ ocp4_workload_globex_ai_poc_amq_streams_client_secret: adminpassword
 
 ocp4_workload_globex_ai_poc_amq_streams_console_enabled: true
 ocp4_workload_globex_ai_poc_amq_streams_console_namespace: kafka
+
+# ------------------------------------------------
+# Globex AI
+# ------------------------------------------------
+
+ocp4_workload_globex_ai_poc_globex_application_name: globex-ai
+ocp4_workload_globex_ai_poc_globex_application_namespace: openshift-gitops
+
+ocp4_workload_globex_ai_poc_globex_namespace: globex-ai
+
+ocp4_workload_globex_ai_poc_globex_gitops_repo: https://github.com/btison/globex-ai-poc-helm.git
+ocp4_workload_globex_ai_poc_globex_gitops_repo_tag: main
+ocp4_workload_globex_ai_poc_globex_gitops_repo_path: globex-ai
+
+ocp4_workload_globex_ai_poc_globex_kafka_broker_namespace: "{{ ocp4_workload_globex_ai_poc_amq_streams_broker_namespace }}"
+ocp4_workload_globex_ai_poc_globex_kafka_broker_name: "{{ ocp4_workload_globex_ai_poc_amq_streams_broker_name }}"
+ocp4_workload_globex_ai_poc_globex_kafka_security_protocol: SASL_PLAINTEXT
+ocp4_workload_globex_ai_poc_globex_kafka_sasl_mechanism: "{{ ocp4_workload_globex_ai_poc_amq_streams_sasl_mechanism }}"
+ocp4_workload_globex_ai_poc_globex_kafka_client_id: globex
+ocp4_workload_globex_ai_poc_globex_kafka_client_secret: globex
