@@ -203,3 +203,22 @@ ocp4_workload_globex_ai_poc_globex_kafka_security_protocol: SASL_PLAINTEXT
 ocp4_workload_globex_ai_poc_globex_kafka_sasl_mechanism: "{{ ocp4_workload_globex_ai_poc_amq_streams_sasl_mechanism }}"
 ocp4_workload_globex_ai_poc_globex_kafka_client_id: globex
 ocp4_workload_globex_ai_poc_globex_kafka_client_secret: globex
+
+ocp4_workload_globex_ai_poc_moderation_llm_model_name: "{{ moderation_llm_model_name }}"
+ocp4_workload_globex_ai_poc_moderation_llm_api_key: "{{ moderation_llm_api_key }}"
+ocp4_workload_globex_ai_poc_moderation_llm_base_url: "{{ moderation_llm_base_url }}"
+
+ocp4_workload_globex_ai_poc_emailwriter_llm_model_name: "{{ emailwriter_llm_model_name }}"
+ocp4_workload_globex_ai_poc_emailwriter_llm_api_key: "{{ emailwriter_llm_api_key }}"
+ocp4_workload_globex_ai_poc_emailwriter_llm_base_url: "{{ emailwriter_llm_base_url }}"
+
+ocp4_workload_globex_ai_poc_sentiment_llm_model_name: "{{ sentiment_llm_model_name }}"
+ocp4_workload_globex_ai_poc_sentiment_llm_api_key: "{{ sentiment_llm_api_key }}"
+ocp4_workload_globex_ai_poc_sentiment_llm_base_url: "{{ sentiment_llm_base_url }}"
+
+ocp4_workload_globex_ai_poc_summary_llm_model_name: "{{ summary_llm_model_name }}"
+ocp4_workload_globex_ai_poc_summary_llm_api_key: "{{ summary_llm_api_key }}"
+ocp4_workload_globex_ai_poc_summary_llm_base_url: "{{ summary_llm_base_url }}"
+
+ocp4_workload_globex_ai_poc_reviews_mongo_collection: reviews
+ocp4_workload_globex_ai_poc_summary_mongo_collection: summary

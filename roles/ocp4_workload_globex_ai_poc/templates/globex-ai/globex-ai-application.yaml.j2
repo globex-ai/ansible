@@ -58,3 +58,55 @@ spec:
         mail-mcp:
           route:
             enabled: true
+
+        review-processor:
+          kafka:
+            <<: *kafka
+
+          llm:
+            moderation:
+              modelName: {{ ocp4_workload_globex_ai_poc_moderation_llm_model_name }}
+              apiKey: {{ ocp4_workload_globex_ai_poc_moderation_llm_api_key }}
+              baseUrl: {{ ocp4_workload_globex_ai_poc_moderation_llm_base_url }}
+            emailWriter:
+              modelName: {{ ocp4_workload_globex_ai_poc_emailwriter_llm_model_name }}
+              apiKey: {{ ocp4_workload_globex_ai_poc_emailwriter_llm_api_key }}
+              baseUrl: {{ ocp4_workload_globex_ai_poc_emailwriter_llm_base_url }}
+            sentiment:
+              modelName: {{ ocp4_workload_globex_ai_poc_sentiment_llm_model_name }}
+              apiKey: {{ ocp4_workload_globex_ai_poc_sentiment_llm_api_key }}
+              baseUrl: {{ ocp4_workload_globex_ai_poc_sentiment_llm_base_url }}              
+
+          mcp:
+            mail:
+              url: http://mail-mcp.{{ ocp4_workload_globex_ai_poc_globex_namespace }}.svc.cluster.local:8080/mcp
+          
+          customerAPI:
+            url: http://globex-store-app.{{ ocp4_workload_globex_ai_poc_globex_namespace }}.svc.cluster.local:8080
+
+          mongodb:
+            connectionString: mongodb://mongodb.{{ ocp4_workload_globex_ai_poc_mongodb_namespace }}.svc.cluster.local:27017
+            database: {{ ocp4_workload_globex_ai_poc_mongodb_databases | first }}
+            collection: {{ ocp4_workload_globex_ai_poc_reviews_mongo_collection }}
+            username: {{ ocp4_workload_globex_ai_poc_mongodb_user_names | first }}
+            password: {{ ocp4_workload_globex_ai_poc_mongodb_user_passwords | first }}
+
+        review-summarizer:
+          kafka:
+            <<: *kafka
+
+          mongodb:
+            connectionString: mongodb://mongodb.{{ ocp4_workload_globex_ai_poc_mongodb_namespace }}.svc.cluster.local:27017
+            database: {{ ocp4_workload_globex_ai_poc_mongodb_databases | first }}
+            username: {{ ocp4_workload_globex_ai_poc_mongodb_user_names | first }}
+            password: {{ ocp4_workload_globex_ai_poc_mongodb_user_passwords | first }}
+            collection:
+              reviews: {{ ocp4_workload_globex_ai_poc_reviews_mongo_collection }}
+              summary: {{ ocp4_workload_globex_ai_poc_summary_mongo_collection }}
+
+          llm:
+            summary:
+              modelName: {{ ocp4_workload_globex_ai_poc_summary_llm_model_name }}
+              apiKey: {{ ocp4_workload_globex_ai_poc_summary_llm_api_key }}
+              baseUrl: {{ ocp4_workload_globex_ai_poc_summary_llm_base_url }}
+ 

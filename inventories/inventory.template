@@ -1,0 +1,21 @@
+[all:vars]
+
+# moderation
+moderation_llm_api_key=
+moderation_llm_model_name=
+moderation_llm_base_url=
+
+# emailwriter
+emailwriter_llm_api_key=
+emailwriter_llm_model_name=
+emailwriter_llm_base_url=
+
+# sentiment
+sentiment_llm_api_key=
+sentiment_llm_model_name=
+sentiment_llm_base_url=
+
+# summary
+summary_llm_model_name=
+summary_llm_api_key=
+summary_llm_base_url=
