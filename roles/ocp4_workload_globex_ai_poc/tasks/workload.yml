@@ -9,5 +9,8 @@
 - name: Install AMQ Streams
   ansible.builtin.include_tasks: amq_streams.yml
 
+- name: Install Mongodb
+  ansible.builtin.include_tasks: mongodb.yml
+
 - name: Install Globex AI app
   ansible.builtin.include_tasks: globex_ai.yml

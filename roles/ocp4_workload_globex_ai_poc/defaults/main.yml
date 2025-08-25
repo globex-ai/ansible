@@ -155,6 +155,36 @@ ocp4_workload_globex_ai_poc_amq_streams_console_enabled: true
 ocp4_workload_globex_ai_poc_amq_streams_console_namespace: kafka
 
 # ------------------------------------------------
+# MongoDb
+# ------------------------------------------------
+
+ocp4_workload_globex_ai_poc_mongodb_application_name: mongodb
+ocp4_workload_globex_ai_poc_mongodb_application_namespace: openshift-gitops
+
+ocp4_workload_globex_ai_poc_mongodb_namespace: mongodb
+
+ocp4_workload_globex_ai_poc_mongodb_helm_repo: https://charts.bitnami.com/bitnami
+ocp4_workload_globex_ai_poc_mongodb_helm_chart: mongodb
+ocp4_workload_globex_ai_poc_mongodb_helm_version: 16.5.44
+
+ocp4_workload_globex_ai_poc_mongodb_architecture: standalone
+
+ocp4_workload_globex_ai_poc_mongodb_image_registry: quay.io
+ocp4_workload_globex_ai_poc_mongodb_image_repository: btison/mongodb
+ocp4_workload_globex_ai_poc_mongodb_image_tag: 8.0.12-debian-12-r2
+
+ocp4_workload_globex_ai_poc_mongodb_root_password:
+  "{{ lookup('ansible.builtin.password', '/tmp/passwordfile-mongodb', chars=['ascii_letters', 'digits'], length=12) }}"
+
+ocp4_workload_globex_ai_poc_mongodb_user_names:
+  - globex
+ocp4_workload_globex_ai_poc_mongodb_user_passwords:
+  - globex
+ocp4_workload_globex_ai_poc_mongodb_databases:
+  - reviews
+
+
+# ------------------------------------------------
 # Globex AI
 # ------------------------------------------------
 
