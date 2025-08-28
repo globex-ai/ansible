@@ -183,6 +183,19 @@ ocp4_workload_globex_ai_poc_mongodb_user_passwords:
 ocp4_workload_globex_ai_poc_mongodb_databases:
   - reviews
 
+# ------------------------------------------------
+# Mail Server
+# ------------------------------------------------
+
+ocp4_workload_globex_ai_poc_mail_server_application_name: mail-server
+ocp4_workload_globex_ai_poc_mail_server_application_namespace: openshift-gitops
+
+ocp4_workload_globex_ai_poc_mail_server_namespace: mail-server
+
+ocp4_workload_globex_ai_poc_mail_server_gitops_repo: https://github.com/btison/globex-ai-poc-helm.git
+ocp4_workload_globex_ai_poc_mail_server_gitops_repo_tag: main
+ocp4_workload_globex_ai_poc_mail_server_gitops_repo_path: mail-server
+
 
 # ------------------------------------------------
 # Globex AI

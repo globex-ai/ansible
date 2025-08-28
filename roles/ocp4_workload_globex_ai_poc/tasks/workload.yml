@@ -12,5 +12,8 @@
 - name: Install Mongodb
   ansible.builtin.include_tasks: mongodb.yml
 
+- name: Install Mail Server
+  ansible.builtin.include_tasks: mail_server.yml
+
 - name: Install Globex AI app
   ansible.builtin.include_tasks: globex_ai.yml

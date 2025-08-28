@@ -58,6 +58,8 @@ spec:
         mail-mcp:
           route:
             enabled: true
+          mailserver:
+            host: {{ ocp4_workload_globex_ai_poc_mail_server_application_name }}.{{ ocp4_workload_globex_ai_poc_mail_server_namespace }}.svc.cluster.local
 
         review-processor:
           kafka:
