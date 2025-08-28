@@ -196,6 +196,21 @@ ocp4_workload_globex_ai_poc_mail_server_gitops_repo: https://github.com/btison/g
 ocp4_workload_globex_ai_poc_mail_server_gitops_repo_tag: main
 ocp4_workload_globex_ai_poc_mail_server_gitops_repo_path: mail-server
 
+# ------------------------------------------------
+# Red Hat Build Of Keycloak
+# ------------------------------------------------
+
+ocp4_workload_globex_ai_poc_rhbk_application_namespace: openshift-gitops
+ocp4_workload_globex_ai_poc_rhbk_application_name: keycloak
+ocp4_workload_globex_ai_poc_rhbk_namespace: keycloak
+ocp4_workload_globex_ai_poc_rhbk_gitops_repo: https://github.com/btison/amq-streams-console-demo-helm.git
+ocp4_workload_globex_ai_poc_rhbk_gitops_repo_tag: main
+ocp4_workload_globex_ai_poc_rhbk_gitops_repo_path: keycloak
+
+ocp4_workload_globex_ai_poc_rhbk_cr_name: keycloak
+ocp4_workload_globex_ai_poc_rhbk_external_access: false
+ocp4_workload_globex_ai_poc_rhbk_host: sso
+ocp4_workload_globex_ai_poc_rhbk_max_time_to_wait: 600000
 
 # ------------------------------------------------
 # Globex AI

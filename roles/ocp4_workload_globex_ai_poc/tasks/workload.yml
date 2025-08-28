@@ -9,6 +9,9 @@
 - name: Install AMQ Streams
   ansible.builtin.include_tasks: amq_streams.yml
 
+- name: Install RHBK
+  ansible.builtin.include_tasks: keycloak.yml
+
 - name: Install Mongodb
   ansible.builtin.include_tasks: mongodb.yml
 
