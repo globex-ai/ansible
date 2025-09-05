@@ -64,6 +64,7 @@ spec:
             enabled: true
             authServer: https://{{ ocp4_workload_globex_ai_poc_rhbk_host }}.{{ r_openshift_subdomain }}/realms/{{ ocp4_workload_globex_ai_poc_rhbk_realm_mcp }}
             clientId: {{ ocp4_workload_globex_ai_poc_rhbk_client_mcp_name }}
+            audience: {{ ocp4_workload_globex_ai_poc_mail_mcp_oidc_audience }}
 
         review-processor:
           kafka:
