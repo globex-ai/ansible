@@ -6,17 +6,5 @@
 - name: Install OpenShift Gitops
   ansible.builtin.include_tasks: openshift_gitops.yml
 
-- name: Install AMQ Streams
-  ansible.builtin.include_tasks: amq_streams.yml
-
-- name: Install RHBK
-  ansible.builtin.include_tasks: keycloak.yml
-
-- name: Install Mongodb
-  ansible.builtin.include_tasks: mongodb.yml
-
-- name: Install Mail Server
-  ansible.builtin.include_tasks: mail_server.yml
-
 - name: Install Globex AI app
-  ansible.builtin.include_tasks: globex_ai.yml
+  ansible.builtin.include_tasks: application.yml

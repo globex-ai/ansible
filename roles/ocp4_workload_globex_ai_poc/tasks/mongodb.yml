@@ -1,6 +1,0 @@
----
-
-- name: Deploy Mongodb application
-  kubernetes.core.k8s:
-    state: present
-    definition: "{{ lookup('template', 'mongodb/mongodb-application.yaml.j2') }}"

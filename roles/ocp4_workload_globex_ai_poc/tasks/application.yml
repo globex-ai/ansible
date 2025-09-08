@@ -17,21 +17,21 @@
     - r_secret_ingress_cert.resources[0] is defined
     - r_secret_ingress_cert.resources[0].data is defined
 
-- name: Get OpenShift ingress certificate and private key"
+- name: Get OpenShift ingress certificate and private key
   ansible.builtin.set_fact:
     ocp4_workload_globex_ai_poc_openshift_ingress_cert: "{{ r_secret_ingress_cert | json_query('resources[0].data.\"tls.crt\"') }}"
     ocp4_workload_globex_ai_poc_openshift_ingress_key: "{{ r_secret_ingress_cert | json_query('resources[0].data.\"tls.key\"') }}"
 
-- name: Create AMQ Streams application
+- name: Create application
   kubernetes.core.k8s:
     state: present
-    definition: "{{ lookup('template', 'amq-streams/amq-streams-application.yaml.j2') | from_yaml }}"
-  retries: 10
-  delay: 60
-  ignore_errors: true
-  register: amq_streams_result
-  until: amq_streams_result is not failed
+    definition: "{{ lookup('template', 'application/application.yaml.j2') | from_yaml }}"
+  # retries: 10
+  # delay: 60
+  # ignore_errors: true
+  register: application_result
+  # until: application_result is not failed
 
 - name: Print result from the previous task
   ansible.builtin.debug:
-    var: amq_streams_result
+    var: application_result
