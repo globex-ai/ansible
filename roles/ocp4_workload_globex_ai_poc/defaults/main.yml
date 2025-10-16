@@ -195,6 +195,6 @@ ocp4_workload_globex_ai_poc_app_application_namespace: openshift-gitops
 
 ocp4_workload_globex_ai_poc_app_namespace: openshift-gitops
 
-ocp4_workload_globex_ai_poc_app_gitops_repo: https://github.com/btison/globex-ai-poc-helm.git
+ocp4_workload_globex_ai_poc_app_gitops_repo: https://github.com/globex-ai/helm.git
 ocp4_workload_globex_ai_poc_app_gitops_repo_tag: main
 ocp4_workload_globex_ai_poc_app_gitops_repo_path: app-of-apps
