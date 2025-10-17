@@ -147,7 +147,8 @@ ocp4_workload_globex_ai_poc_openshift_gitops_ignore_differences: {}
 # AMQ Streams
 # ------------------------------------------------
 
-ocp4_workload_globex_ai_poc_openshift_ingress_secret_certs: ingress-certs-2025-07-30
+ocp4_workload_globex_ai_poc_amq_streams_enable_external_listener: false
+ocp4_workload_globex_ai_poc_openshift_ingress_secret_certs: ingress-certs
 
 # ------------------------------------------------
 # MongoDb

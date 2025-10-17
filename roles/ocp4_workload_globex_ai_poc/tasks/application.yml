@@ -1,6 +1,7 @@
 ---
 
 - name: Get OpenShift ingress certificate secret
+  when: ocp4_workload_globex_ai_poc_amq_streams_enable_external_listener | bool
   kubernetes.core.k8s_info:
     api_version: v1
     kind: Secret
@@ -17,10 +18,17 @@
     - r_secret_ingress_cert.resources[0] is defined
     - r_secret_ingress_cert.resources[0].data is defined
 
-- name: Get OpenShift ingress certificate and private key
+- name: Set OpenShift ingress certificate and private key variables
+  when: ocp4_workload_globex_ai_poc_amq_streams_enable_external_listener | bool
   ansible.builtin.set_fact:
     ocp4_workload_globex_ai_poc_openshift_ingress_cert: "{{ r_secret_ingress_cert | json_query('resources[0].data.\"tls.crt\"') }}"
     ocp4_workload_globex_ai_poc_openshift_ingress_key: "{{ r_secret_ingress_cert | json_query('resources[0].data.\"tls.key\"') }}"
+
+- name: Set Dummy OpenShift ingress certificate and private key variables
+  when: not (ocp4_workload_globex_ai_poc_amq_streams_enable_external_listener | bool)
+  ansible.builtin.set_fact:
+    ocp4_workload_globex_ai_poc_openshift_ingress_cert: ""
+    ocp4_workload_globex_ai_poc_openshift_ingress_key: ""
 
 - name: Create application
   kubernetes.core.k8s:
